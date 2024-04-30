@@ -5,6 +5,9 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -12,6 +15,11 @@ import jakarta.persistence.Transient;
 @Table(name = "addresses")
 public class Address {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
+	
 	@Column(name = "city")
 	private String city;
 	
@@ -28,6 +36,16 @@ public class Address {
 	public Address() {
 		
 		this.utilities = new ArrayList<>();
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 
@@ -78,7 +96,8 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [city=" + city + ", street=" + street + ", userid=" + userid + ", utilities=" + utilities + "]";
+		return "Address [id=" + id + ", city=" + city + ", street=" + street + ", userid=" + userid + ", utilities="
+				+ utilities + "]";
 	}
-	
+
 }

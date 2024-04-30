@@ -24,10 +24,10 @@ public class User {
 	private String name;
 	
 	@Transient
-	private List<Integer> addressid;
+	private List<Address> address;
 
 	public User() {
-		this.addressid = new ArrayList<>();
+		this.address = new ArrayList<>();
 	}
 
 	public int getId() {
@@ -46,22 +46,22 @@ public class User {
 		this.name = name;
 	}
 
-	public List<Integer> getAddressid() {
-		return addressid;
+	public List<Address> getAddress() {
+		return address;
 	}
 
-	public void setAddressid(List<Integer> addressid) {
-		this.addressid = addressid;
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
+
+	public void addAddress(Address address) {
+		
+		this.address.add(address);
 	}
 	
-	public void addAddressId(int id) {
-		
-		this.addressid.add(id);
-	}
-
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", addressid=" + addressid + "]";
+		return "User [id=" + id + ", name=" + name + ", address=" + address + "]";
 	}
-	
+
 }

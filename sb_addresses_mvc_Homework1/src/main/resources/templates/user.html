@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	
+	<body>
+	
+		<table>
+			<tr>
+				<th>User Name</th>
+				<th>User Addresses and Utilities</th>
+			</tr>		
+			<tr>
+				<td th:text="${user.getName()}"></td>
+				
+				<td>
+					<table>
+						<tr>
+							<th>City</th>
+							<th>Street</th>
+						</tr>
+					
+						<tr th:each="addresses : ${user.getAddresses()}">
+							<td th:text="${addresses.getCity()}"></td>
+							<td th:text="${addresses.getStreet()}"></td>
+							
+							<td>
+								<table>
+									<tr th:each="utility: ${addresses.getUtilities()}">
+										<td th:text="${utility.getName()}"></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	
+	</body>
+</html>
